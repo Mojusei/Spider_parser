@@ -19,21 +19,12 @@ ref = 'https://www.mvideo.ru/vse-akcii'
 
 driver.get(ref)
 time.sleep(3)"""
-string = 'Покупай сейчас, плати потом'
-
-def check_commas(string):
-    """ Проверка на наличие запятых в строке"""
-    import re
-
-    res = re.search(',', string)
-
-    if res != None:
-        string = string.replace(',', '')
-    
-    return string
+with open('stocks.csv', 'r', encoding='utf-8') as file:
+    reader = csv.DictReader(file, delimiter=';')
+    for row in reader:
+        print(f"{row['Заголовок']}: {row['Ссылка']}\n\n")
 
 
-print(check_commas(string))
 
 
 """driver.quit()"""

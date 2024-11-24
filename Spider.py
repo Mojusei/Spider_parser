@@ -92,8 +92,11 @@ class Spider:
 
             data.append({
                 'Заголовок' : title,
-                'Ссылка' : refer
+                'Ссылка' : refer,
             })
+
         
+        data.reverse()
+
         return data
 
